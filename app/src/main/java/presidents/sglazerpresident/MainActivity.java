@@ -13,20 +13,20 @@ import java.io.InputStreamReader;
 
 public class MainActivity extends AppCompatActivity {
 
-    private RecyclerView recylerView;
+    private RecyclerView recyclerView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         LinearLayoutManager layoutManager= new LinearLayoutManager(this);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        recylerView= (RecyclerView) findViewById(R.id.list);
-        recylerView.setLayoutManager(layoutManager);
+        recyclerView= (RecyclerView) findViewById(R.id.list);
+        recyclerView.setLayoutManager(layoutManager);
         InputStream in=getResources().openRawResource(R.raw.presidents);
         Gson gson= new Gson();
         President presidents []= gson.fromJson(new InputStreamReader(in), President[].class);
         PresidentAdapter adapter= new PresidentAdapter(presidents);
-        recylerView.setAdapter(adapter);
+        recyclerView.setAdapter(adapter);
 
     }
 }
