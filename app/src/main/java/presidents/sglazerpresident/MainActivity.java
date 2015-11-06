@@ -14,7 +14,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 public class MainActivity extends AppCompatActivity {
-    public static President presidents [];
+    public President presidents [];
     private RecyclerView recyclerView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

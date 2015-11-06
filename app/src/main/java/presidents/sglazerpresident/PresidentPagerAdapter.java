@@ -1,5 +1,6 @@
 package presidents.sglazerpresident;
 
+import android.content.Context;
 import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,9 +15,11 @@ import com.squareup.picasso.Picasso;
  */
 public class PresidentPagerAdapter extends PagerAdapter {
     private President [] presidents;
+    private Context context;
 
-    public PresidentPagerAdapter( President [] presidents){
+    public PresidentPagerAdapter( President [] presidents, Context context){
         this.presidents=presidents;
+        this.context=context;
     }
     @Override
     public int getCount() {
@@ -50,8 +53,8 @@ public class PresidentPagerAdapter extends PagerAdapter {
         life.setText("President's life: "+president.getBirth_year()+ "-"+ president.getDeath_year());
         office.setText("Years in office: "+president.getTook_office().substring(0,4)+ "-"+ president.getLeft_office().substring(0,4));
         party.setText(president.getParty());
-
-        Picasso.with(view.getContext()).load("http://images.tutorcircle.com/cms/images/83/projectile-motion111.PNG").into(picture);
+        String url="https://cse.google.com/cse/setup/basic?cx=009527935933081976895:3rz_wfyhsvg:q?"+ "george";
+        Picasso.with(context).load("https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Ideal_projectile_motion_for_different_angles.svg/350px-Ideal_projectile_motion_for_different_angles.svg.png").into(picture);
         container.addView(view);
         return view;
     }
