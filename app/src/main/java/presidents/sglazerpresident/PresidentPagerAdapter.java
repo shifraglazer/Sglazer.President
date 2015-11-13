@@ -50,8 +50,8 @@ public class PresidentPagerAdapter extends PagerAdapter {
         President president= presidents[position];
         name.setText(president.getPresident());
         number.setText(String.valueOf(president.getNumber()));
-        life.setText("President's life: "+president.getBirth_year()+ "-"+ president.getDeath_year());
-        office.setText("Years in office: "+president.getTook_office().substring(0,4)+ "-"+ president.getLeft_office().substring(0,4));
+        life.setText("Life: "+president.getBirth_year()+ "-"+ president.getDeath_year());
+        office.setText("Office: "+president.getTook_office().substring(0,4)+ "-"+ president.getLeft_office().substring(0,4));
         party.setText(president.getParty());
         String url="https://cse.google.com/cse/setup/basic?cx=009527935933081976895:3rz_wfyhsvg:q?"+ "george";
         Picasso.with(context).load("https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Ideal_projectile_motion_for_different_angles.svg/350px-Ideal_projectile_motion_for_different_angles.svg.png").into(picture);
