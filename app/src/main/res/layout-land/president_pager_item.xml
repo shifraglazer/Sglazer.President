@@ -10,15 +10,19 @@
         android:id="@+id/picture"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true" />
+        tools:text="IMAGE"
+         />
 
     <TextView
         android:id="@+id/name"
         style="@style/PresidentInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="@id/picture"
+        android:layout_toEndOf="@id/picture"
         android:layout_toRightOf="@id/picture"
         android:textStyle="bold"
+        android:textSize="30sp"
         tools:text="NAME" />
 
     <TextView

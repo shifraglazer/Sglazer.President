@@ -1,6 +1,8 @@
 package presidents.sglazerpresident;
 
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -35,7 +37,9 @@ public class PresidentListFragment extends Fragment {
                 .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
                 .create();
         President [] presidents= gson.fromJson(new InputStreamReader(in), President[].class);
-        PresidentAdapter adapter= new PresidentAdapter(presidents);
+        OnPresidentSelectedListener listener= (OnPresidentSelectedListener) getActivity();
+        PresidentAdapter adapter= new PresidentAdapter(presidents, listener);
+
         recyclerView.setAdapter(adapter);
     }
 

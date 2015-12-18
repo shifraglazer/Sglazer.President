@@ -10,30 +10,28 @@ import android.view.ViewGroup;
 /**
  * Created by student1 on 10/22/2015.
  */
-public class PresidentAdapter extends RecyclerView.Adapter<PresidentViewHolder>{
+public class PresidentAdapter extends RecyclerView.Adapter<PresidentViewHolder> {
 
-    private President [] presidents;
-    public PresidentAdapter(President[] presidents) {
-        this.presidents= presidents;
+    private President[] presidents;
+    private OnPresidentSelectedListener listener;
+
+    public PresidentAdapter(President[] presidents, OnPresidentSelectedListener listener) {
+        this.presidents = presidents;
+        this.listener = listener;
     }
+
     @Override
     public PresidentViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView= LayoutInflater.from(parent.getContext()).inflate(R.layout.president_list_item,parent,false);
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.president_list_item, parent, false);
         return new PresidentViewHolder(itemView);
     }
 
     @Override
     public void onBindViewHolder(final PresidentViewHolder holder, final int position) {
-    holder.bind(presidents[position]);
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Context context= holder.itemView.getContext();
-                Intent intent= new Intent(context,DetailActivity.class);
-                intent.putExtra("PRESIDENTS",presidents);
-                intent.putExtra("POSITION",position);
-                context.startActivity(intent);
-
+        holder.bind(presidents[position]);
+        holder.itemView.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                listener.onSelect(presidents,position);
             }
         });
     }
