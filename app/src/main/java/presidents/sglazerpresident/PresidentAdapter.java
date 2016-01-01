@@ -21,6 +21,11 @@ public class PresidentAdapter extends RecyclerView.Adapter<PresidentViewHolder> 
     }
 
     @Override
+    public int getItemViewType(int position) {
+        return 0;
+    }
+
+    @Override
     public PresidentViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.president_list_item, parent, false);
         return new PresidentViewHolder(itemView);
